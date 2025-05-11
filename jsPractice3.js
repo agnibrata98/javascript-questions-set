@@ -223,4 +223,22 @@ const highScorers = students.map((student) => {
 });
 // console.log(highScorers);
 const filteredHighScorers = highScorers.filter((student) => student.average > 90);
-console.log(filteredHighScorers);
+// console.log(filteredHighScorers);
+
+
+
+
+// numeronyms
+// devs like to abbreviate everything: k8s means Kubernetes, a11y means accessibility, l10n means localization. you get the dev numeronyms by taking the first and the last letter and counting the number of letters in between. Words that have less than 4 letters aren't abbreviated, because that would just be odd. The input is a sentence, and you should abbreviate every word that is 4 letters long or longer. There won't be any punctuation in the sentence. g2d l2k e6e
+
+const sentence = "Every developer likes to mix kubernetes and javascript";
+
+const numeronyms = sentence.split(" ").map((word) => {
+  // console.log(word[0], word.length - 2, word[word.length - 1]);
+  if (word.length > 3) {
+    return word[0] + (word.length - 2) + word[word.length - 1];
+  }
+  return word;
+}).join(" ");
+
+// console.log(numeronyms);

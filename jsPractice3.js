@@ -187,3 +187,40 @@ function sortArray(arr) {
   const array4 = [5, 2, 8, 1, 9, -3];
   const sortedArray = sortArray(array4);
 //   console.log(sortedArray);
+
+
+
+// count elements in array of arrays
+
+const input = [
+  ['a', 'b', 'c'],
+  ['c', 'd', 'f'],
+  ['d', 'f', 'g'],
+]
+
+// result should be { a: 1, b: 1, c: 2, d: 2, f: 2, g: 1 }
+
+const count = input.flat().reduce((acc, curr) => {
+  // console.log(acc, curr);
+  acc[curr] = (acc[curr] || 0) + 1;
+  return acc;
+}, {});
+// console.log(count);
+
+
+// you are given an array of objects representing a group of students, each with a name and and an array of test scores. your task is to use map, filter and reduce to calculate the average test score for each student, and then return an array objects containing only the students who have an average score greater than 90.
+
+const students = [
+  { name: "Alice", scores: [90, 85, 92] },
+  { name: "Bob", scores: [75, 80, 85] },
+  { name: "Charlie", scores: [90, 95, 85] },
+  { name: "David", scores: [100, 100, 100] },
+];
+
+const highScorers = students.map((student) => {
+  const average = student.scores.reduce((acc, curr) => acc + curr, 0) / student.scores.length;
+  return { name: student.name, average };
+});
+// console.log(highScorers);
+const filteredHighScorers = highScorers.filter((student) => student.average > 90);
+console.log(filteredHighScorers);
